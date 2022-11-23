@@ -139,8 +139,8 @@ class MoneyMaskedTextController extends TextEditingController {
       try {
         // We take the number of leading zeros taking into account the behavior
         // when the text has only 4 characters
-        var numberOfLeadingZeros =
-            text.length - int.parse(text).toString().length;
+          var numberOfLeadingZeros = text.length - (int.tryParse(text)?.toString().length ?? 0);
+
         if (numberOfLeadingZeros == 2 && text.length == 4) {
           numberOfLeadingZeros = 1;
         }
